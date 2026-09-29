@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<!-- CAMBIAR AQUÍ el título de la pestaña -->
+<title>Feliz día de los Hot Wheels, Gastón 🏎️</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Lienzo 3D -->
+  <canvas id="escena3d"></canvas>
+
+  <!-- Título luminoso -->
+  <header class="titulo-flotante">
+    <!-- CAMBIAR AQUÍ el título principal -->
+    <h1>Feliz día de los Hot Wheels, Gastón <span class="emoji-titulo">🏎️</span></h1>
+    <p class="subtitulo">Toca un carrito para ver qué trae</p>
+  </header>
+
+  <!-- Pantalla de inicio: "Toca para iniciar" -->
+  <div class="inicio" id="inicio" role="button" tabindex="0" aria-label="Toca para iniciar">
+    <svg class="llama" viewBox="0 0 200 90" aria-hidden="true">
+      <defs>
+        <linearGradient id="gradLlama" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="#ff2a1a"/>
+          <stop offset="0.55" stop-color="#ff8a00"/>
+          <stop offset="1" stop-color="#ffe14d"/>
+        </linearGradient>
+      </defs>
+      <path d="M8 62 C34 58 44 30 84 24 C104 21 118 32 132 22 C126 40 140 44 158 38 C150 52 168 56 192 50 C176 70 138 84 96 80 C58 78 30 76 8 62 Z" fill="url(#gradLlama)"/>
+      <path d="M30 60 C56 56 70 40 98 38 C90 48 104 54 124 50 C112 62 84 68 56 66 Z" fill="#0a0500" opacity="0.55"/>
+    </svg>
+    <p class="toca">Toca para iniciar</p>
+  </div>
+
+  <!-- Tarjeta que aparece al tocar un carrito -->
+  <div class="capa-tarjeta oculto" id="capa-tarjeta">
+    <div class="tarjeta">
+      <button class="cerrar-tarjeta" id="cerrar-tarjeta" aria-label="Cerrar">×</button>
+      <h2 class="tarjeta-titulo">Para ti, Gastón 🏁</h2>
+      <div class="tarjeta-carro"><img id="tarjeta-img" alt="Carrito"></div>
+      <p class="tarjeta-texto" id="tarjeta-texto"></p>
+    </div>
+  </div>
+
+  <!-- Controles -->
+  <div class="controles-flotantes">
+    <button class="btn-control" id="btn-audio" aria-label="Reproducir música">
+      <svg id="ic-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      <svg id="ic-pausa" viewBox="0 0 24 24" class="oculto"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+    </button>
+    <button class="btn-control" id="btn-forma" aria-label="Cambiar la figura del centro" title="Cambiar la figura">✨</button>
+  </div>
+
+  <!-- Música incluida en esta misma carpeta. Se inicia al tocar la llama. -->
+  <audio id="audio-fondo" src="cancion.mp3" loop preload="auto"></audio>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
