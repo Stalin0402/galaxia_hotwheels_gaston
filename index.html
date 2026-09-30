@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<!-- CAMBIAR AQUÍ el título de la pestaña -->
+<title>Feliz día de los Hot Wheels, Gastón 🏎️</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Lienzo 3D -->
+  <canvas id="escena3d"></canvas>
+
+  <!-- Título luminoso -->
+  <header class="titulo-flotante">
+    <!-- CAMBIAR AQUÍ el título principal -->
+    <h1>Feliz día de los Hot Wheels, Gastón <span class="emoji-titulo">🏎️</span></h1>
+    <p class="subtitulo">Toca un carrito para ver qué trae</p>
+  </header>
+
+  <!-- Pantalla de inicio: "Toca para iniciar" -->
+  <div class="inicio" id="inicio" role="button" tabindex="0" aria-label="Toca para iniciar">
+    <svg class="llama" viewBox="0 0 200 90" aria-hidden="true">
+      <defs>
+        <linearGradient id="gradLlama" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="#ff2a1a"/>
+          <stop offset="0.55" stop-color="#ff8a00"/>
+          <stop offset="1" stop-color="#ffe14d"/>
+        </linearGradient>
+      </defs>
+      <path d="M8 62 C34 58 44 30 84 24 C104 21 118 32 132 22 C126 40 140 44 158 38 C150 52 168 56 192 50 C176 70 138 84 96 80 C58 78 30 76 8 62 Z" fill="url(#gradLlama)"/>
+      <path d="M30 60 C56 56 70 40 98 38 C90 48 104 54 124 50 C112 62 84 68 56 66 Z" fill="#0a0500" opacity="0.55"/>
+    </svg>
+
+    <div class="llanta-llamas" aria-hidden="true">
+      <svg viewBox="0 0 220 150">
+        <defs>
+          <linearGradient id="gradLlantaFuego" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#ff2a1a"/>
+            <stop offset="0.5" stop-color="#ff8a00"/>
+            <stop offset="1" stop-color="#ffe14d"/>
+          </linearGradient>
+        </defs>
+        <path class="fuego-llanta" d="M22 102 C38 92 37 68 55 54 C55 70 67 75 77 61 C82 52 88 39 88 25 C105 42 106 61 101 74 C113 69 127 58 132 43 C145 62 141 80 132 91 C149 84 163 75 177 57 C183 80 172 99 157 108 C139 121 113 126 86 125 C58 124 35 117 22 102 Z" fill="url(#gradLlantaFuego)"/>
+        <circle cx="109" cy="92" r="40" fill="#090d11" stroke="#d8fffb" stroke-width="5"/>
+        <circle cx="109" cy="92" r="24" fill="#161d22" stroke="#ff8a00" stroke-width="5"/>
+        <circle cx="109" cy="92" r="8" fill="#ffe14d"/>
+        <path d="M109 68 L109 84 M109 100 L109 116 M85 92 L101 92 M117 92 L133 92 M92 75 L103 86 M115 98 L126 109 M126 75 L115 86 M103 98 L92 109" stroke="#ff8a00" stroke-width="4" stroke-linecap="round"/>
+      </svg>
+    </div>    <p class="toca">Toca para iniciar</p>
+  </div>
+
+  <!-- Tarjeta que aparece al tocar un carrito -->
+  <div class="capa-tarjeta oculto" id="capa-tarjeta">
+    <div class="tarjeta">
+      <button class="cerrar-tarjeta" id="cerrar-tarjeta" aria-label="Cerrar">×</button>
+      <h2 class="tarjeta-titulo">Para ti, Gastón 🏁</h2>
+      <div class="tarjeta-carro"><img id="tarjeta-img" alt="Carrito"></div>
+      <p class="tarjeta-texto" id="tarjeta-texto"></p>
+    </div>
+  </div>
+
+  <!-- Controles -->
+  <div class="controles-flotantes">
+    <button class="btn-control" id="btn-audio" aria-label="Reproducir música">
+      <svg id="ic-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      <svg id="ic-pausa" viewBox="0 0 24 24" class="oculto"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+    </button>
+    <button class="btn-control" id="btn-forma" aria-label="Cambiar la figura del centro" title="Cambiar la figura">✨</button>
+  </div>
+
+  <!-- OPCIONAL: pon un archivo cancion.mp3 en esta misma carpeta para tener música.
+       Si no existe, el botón simplemente no hace nada y la página sigue funcionando. -->
+  <audio id="audio-fondo" src="cancion.mp3" loop preload="none"></audio>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
